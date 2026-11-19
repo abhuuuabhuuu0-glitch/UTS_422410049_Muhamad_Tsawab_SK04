@@ -1,0 +1,373 @@
+{
+  "kategori_pita": [
+    {
+      "nama": "Open Reel",
+      "slug": "open-reel",
+      "deskripsi": "Pita magnetik 1/4 inci pada reel terbuka (reel-to-reel)."
+    },
+    {
+      "nama": "Kaset Kompakt",
+      "slug": "kaset-kompakt",
+      "deskripsi": "Kaset audio kompakt (Compact Cassette) berbagai merek."
+    },
+    {
+      "nama": "Video Analog",
+      "slug": "video-analog",
+      "deskripsi": "Pita video analog format VHS, Betamax, dan U-matic."
+    },
+    {
+      "nama": "Cartridge 8-Track",
+      "slug": "cartridge-8-track",
+      "deskripsi": "Kartrid audio 8-track berloop tertutup."
+    }
+  ],
+  "kerusakan": [
+    {
+      "nama": "Sticky Shed Syndrome",
+      "deskripsi": "Lapisan pengikat menjadi lengket akibat hidrolisis."
+    },
+    {
+      "nama": "Jamur (Fungus)",
+      "deskripsi": "Pertumbuhan jamur pada permukaan pita karena kelembapan tinggi."
+    },
+    {
+      "nama": "Pita Putus",
+      "deskripsi": "Pita terputus di tengah atau pada sambungan."
+    },
+    {
+      "nama": "Pita Kusut",
+      "deskripsi": "Lipatan atau kusut yang merusak lapisan magnetik."
+    },
+    {
+      "nama": "Penyusutan (Shrinkage)",
+      "deskripsi": "Basis pita menyusut sehingga tegangan tidak merata."
+    },
+    {
+      "nama": "Oksida Terkelupas",
+      "deskripsi": "Lapisan magnetik mengelupas dari basis pita."
+    },
+    {
+      "nama": "Sambungan Rusak (Splice)",
+      "deskripsi": "Sambungan lama rapuh atau tidak rapi."
+    },
+    {
+      "nama": "Tepi Pita Rusak",
+      "deskripsi": "Tepi pita sobek, bergelombang, atau aus."
+    }
+  ],
+  "peralatan": [
+    {
+      "nama": "Tape Deck Revox B77",
+      "jenis": "pemutar"
+    },
+    {
+      "nama": "VCR U-matic Pemutar",
+      "jenis": "pemutar"
+    },
+    {
+      "nama": "Ultrasonic Cleaner",
+      "jenis": "pembersih"
+    },
+    {
+      "nama": "Head Cleaner & Demagnetizer",
+      "jenis": "pembersih"
+    },
+    {
+      "nama": "Inkubator Pemanggangan (Baking Oven)",
+      "jenis": "lainnya"
+    },
+    {
+      "nama": "ADC Audio RME Digiface",
+      "jenis": "digitasi"
+    },
+    {
+      "nama": "Workstation Audio Digital (DAW)",
+      "jenis": "digitasi"
+    }
+  ],
+  "teknisi": [
+    {
+      "nama": "Rina Wulandari",
+      "keahlian": "Audio Engineer & Restorasi Audio",
+      "email": "rina.wulandari@arsip.example"
+    },
+    {
+      "nama": "Dimas Prasetyo",
+      "keahlian": "Konservasi Media Magnetik",
+      "email": "dimas.prasetyo@arsip.example"
+    },
+    {
+      "nama": "Ayu Lestari",
+      "keahlian": "Restorasi Video Analog",
+      "email": "ayu.lestari@arsip.example"
+    }
+  ],
+  "pita": [
+    {
+      "kode_arsip": "PA-OR-0001",
+      "judul": "Rekaman Gamelan Bali Upacara Galungan",
+      "kategori": "Open Reel",
+      "tahun_rekaman": 1978,
+      "durasi_menit": 46,
+      "kondisi": "rusak_berat",
+      "lokasi_simpan": "Rak A-01",
+      "deskripsi": "Rekaman lapangan gamelan, pita sudah mengalami sticky shed.",
+      "kerusakan": [
+        "Sticky Shed Syndrome",
+        "Jamur (Fungus)"
+      ]
+    },
+    {
+      "kode_arsip": "PA-OR-0002",
+      "judul": "Wawancara Sejarah Lisan Pejuang Kemerdekaan",
+      "kategori": "Open Reel",
+      "tahun_rekaman": 1982,
+      "durasi_menit": 72,
+      "kondisi": "sedang",
+      "lokasi_simpan": "Rak A-02",
+      "deskripsi": "Wawancara sejarah lisan, beberapa sambungan lama.",
+      "kerusakan": [
+        "Sambungan Rusak (Splice)"
+      ]
+    },
+    {
+      "kode_arsip": "PA-OR-0003",
+      "judul": "Siaran Radio Musik Keroncong 1985",
+      "kategori": "Open Reel",
+      "tahun_rekaman": 1985,
+      "durasi_menit": 58,
+      "kondisi": "sedang",
+      "lokasi_simpan": "Rak A-02",
+      "deskripsi": "Siaran radio arsip dengan tepi pita aus.",
+      "kerusakan": [
+        "Tepi Pita Rusak",
+        "Penyusutan (Shrinkage)"
+      ]
+    },
+    {
+      "kode_arsip": "PA-KK-0004",
+      "judul": "Kaset Lagu Daerah Jawa Tengah",
+      "kategori": "Kaset Kompakt",
+      "tahun_rekaman": 1990,
+      "durasi_menit": 60,
+      "kondisi": "sedang",
+      "lokasi_simpan": "Lemari K-03",
+      "deskripsi": "Kaset produksi lokal, lapisan oksida mulai terkelupas.",
+      "kerusakan": [
+        "Oksida Terkelupas"
+      ]
+    },
+    {
+      "kode_arsip": "PA-KK-0005",
+      "judul": "Pidato Kenegaraan Kaset Compact",
+      "kategori": "Kaset Kompakt",
+      "tahun_rekaman": 1994,
+      "durasi_menit": 90,
+      "kondisi": "baik",
+      "lokasi_simpan": "Lemari K-03",
+      "deskripsi": "Kondisi relatif baik, hanya perlu digitasi ulang.",
+      "kerusakan": []
+    },
+    {
+      "kode_arsip": "PA-VA-0006",
+      "judul": "Dokumentasi Festival Budaya Nusantara",
+      "kategori": "Video Analog",
+      "tahun_rekaman": 1989,
+      "durasi_menit": 120,
+      "kondisi": "rusak_berat",
+      "lokasi_simpan": "Rak V-01",
+      "deskripsi": "Format VHS, pita kusut dan jamur di beberapa bagian.",
+      "kerusakan": [
+        "Pita Kusut",
+        "Jamur (Fungus)",
+        "Pita Putus"
+      ]
+    },
+    {
+      "kode_arsip": "PA-VA-0007",
+      "judul": "Liputan Berita Televisi Lokal 1996",
+      "kategori": "Video Analog",
+      "tahun_rekaman": 1996,
+      "durasi_menit": 45,
+      "kondisi": "sedang",
+      "lokasi_simpan": "Rak V-02",
+      "deskripsi": "Format Betamax, sedikit penyusutan basis.",
+      "kerusakan": [
+        "Penyusutan (Shrinkage)"
+      ]
+    },
+    {
+      "kode_arsip": "PA-8T-0008",
+      "judul": "Kompilasi Musik Pop Era 70-an",
+      "kategori": "Cartridge 8-Track",
+      "tahun_rekaman": 1975,
+      "durasi_menit": 40,
+      "kondisi": "sedang",
+      "lokasi_simpan": "Lemari C-01",
+      "deskripsi": "Kartrid 8-track dengan loop yang mulai aus.",
+      "kerusakan": [
+        "Sambungan Rusak (Splice)",
+        "Oksida Terkelupas"
+      ]
+    }
+  ],
+  "restorasi": [
+    {
+      "kode_arsip": "PA-OR-0001",
+      "teknisi": "Dimas Prasetyo",
+      "tanggal_mulai": "2026-09-01",
+      "tanggal_selesai": null,
+      "status": "proses",
+      "biaya": 1850000,
+      "catatan": "Prioritas tinggi, lakukan baking dengan suhu terkontrol.",
+      "peralatan": [
+        "Inkubator Pemanggangan (Baking Oven)",
+        "Ultrasonic Cleaner",
+        "ADC Audio RME Digiface"
+      ],
+      "detail": [
+        {
+          "tahap": "pemanggangan",
+          "tindakan": "Baking 52 derajat selama 8 jam",
+          "tanggal": "2026-09-02",
+          "durasi_menit": 480,
+          "hasil": "Lapisan lengket berkurang, pita bisa berputar."
+        },
+        {
+          "tahap": "pembersihan",
+          "tindakan": "Pembersihan permukaan dengan alkohol isopropil",
+          "tanggal": "2026-09-04",
+          "durasi_menit": 120,
+          "hasil": "Jamur berhasil diangkat dari sebagian besar pita."
+        },
+        {
+          "tahap": "digitasi",
+          "tindakan": "Digitasi 24-bit/96kHz",
+          "tanggal": "2026-09-08",
+          "durasi_menit": 210,
+          "hasil": "Berkas WAV master tersimpan."
+        }
+      ]
+    },
+    {
+      "kode_arsip": "PA-OR-0002",
+      "teknisi": "Rina Wulandari",
+      "tanggal_mulai": "2026-08-10",
+      "tanggal_selesai": "2026-08-25",
+      "status": "selesai",
+      "biaya": 950000,
+      "catatan": "Penyambungan ulang sambungan lama.",
+      "peralatan": [
+        "Tape Deck Revox B77",
+        "ADC Audio RME Digiface",
+        "Workstation Audio Digital (DAW)"
+      ],
+      "detail": [
+        {
+          "tahap": "pembersihan",
+          "tindakan": "Pembersihan kepala baca dan pita",
+          "tanggal": "2026-08-11",
+          "durasi_menit": 60,
+          "hasil": "Kepala baca bersih."
+        },
+        {
+          "tahap": "digitasi",
+          "tindakan": "Digitasi dan penyambungan ulang tiga sambungan",
+          "tanggal": "2026-08-14",
+          "durasi_menit": 180,
+          "hasil": "Sambungan rapi, tidak ada drop-out."
+        },
+        {
+          "tahap": "editing",
+          "tindakan": "Normalisasi dan reduksi noise ringan",
+          "tanggal": "2026-08-20",
+          "durasi_menit": 150,
+          "hasil": "Noise latar turun tanpa merusak suara wawancara."
+        },
+        {
+          "tahap": "verifikasi",
+          "tindakan": "Verifikasi checksum dan pendengaran ulang",
+          "tanggal": "2026-08-25",
+          "durasi_menit": 45,
+          "hasil": "Lolos verifikasi."
+        }
+      ]
+    },
+    {
+      "kode_arsip": "PA-VA-0006",
+      "teknisi": "Ayu Lestari",
+      "tanggal_mulai": "2026-10-05",
+      "tanggal_selesai": null,
+      "status": "menunggu",
+      "biaya": 3200000,
+      "catatan": "Menunggu jadwal alat U-matic.",
+      "peralatan": [
+        "VCR U-matic Pemutar",
+        "Head Cleaner & Demagnetizer"
+      ],
+      "detail": []
+    },
+    {
+      "kode_arsip": "PA-KK-0004",
+      "teknisi": "Rina Wulandari",
+      "tanggal_mulai": "2026-07-01",
+      "tanggal_selesai": "2026-07-09",
+      "status": "selesai",
+      "biaya": 275000,
+      "catatan": "Pembersihan dan digitasi standar.",
+      "peralatan": [
+        "Head Cleaner & Demagnetizer",
+        "ADC Audio RME Digiface"
+      ],
+      "detail": [
+        {
+          "tahap": "pembersihan",
+          "tindakan": "Pembersihan kepala dan demagnetisasi",
+          "tanggal": "2026-07-02",
+          "durasi_menit": 40,
+          "hasil": "Noise dengung berkurang."
+        },
+        {
+          "tahap": "digitasi",
+          "tindakan": "Digitasi 24-bit/48kHz",
+          "tanggal": "2026-07-07",
+          "durasi_menit": 75,
+          "hasil": "Berkas master tersimpan."
+        }
+      ]
+    },
+    {
+      "kode_arsip": "PA-8T-0008",
+      "teknisi": "Dimas Prasetyo",
+      "tanggal_mulai": "2026-11-03",
+      "tanggal_selesai": null,
+      "status": "proses",
+      "biaya": 540000,
+      "catatan": "Loop harus disambung ulang secara manual.",
+      "peralatan": [
+        "Tape Deck Revox B77",
+        "Ultrasonic Cleaner"
+      ],
+      "detail": [
+        {
+          "tahap": "pembersihan",
+          "tindakan": "Ultrasonic cleaning kartrid",
+          "tanggal": "2026-11-04",
+          "durasi_menit": 90,
+          "hasil": "Permukaan bersih, tidak ada debu tersisa."
+        }
+      ]
+    },
+    {
+      "kode_arsip": "PA-OR-0003",
+      "teknisi": null,
+      "tanggal_mulai": "2026-11-10",
+      "tanggal_selesai": null,
+      "status": "dibatalkan",
+      "biaya": 0,
+      "catatan": "Dibatalkan atas permintaan peminjam.",
+      "peralatan": [],
+      "detail": []
+    }
+  ]
+}

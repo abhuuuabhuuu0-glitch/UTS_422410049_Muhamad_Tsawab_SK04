@@ -1,0 +1,122 @@
+digraph ClassDiagram {
+  graph [rankdir=TB, fontname="Helvetica", fontsize=20, label=<<B>Class Diagram — SK04 Restorasi Pita Analog (Laravel 12)</B><BR/><FONT POINT-SIZE="11">Model · Service · Controller · Form Request</FONT>>, labelloc=t, pad=0.4, nodesep=0.5, ranksep=0.9, bgcolor="#fffdf7", splines=true];
+  node  [shape=plaintext, fontname="Helvetica", fontsize=10];
+  edge  [fontname="Helvetica", fontsize=9, color="#7c4a1e", arrowsize=0.8];
+
+  subgraph cluster_model {
+    label=<<B>&laquo;Eloquent Models&raquo;</B>>; style="rounded,filled"; fillcolor="#fff1d6"; color="#e8a33d"; fontsize=12;
+
+    KategoriPita [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" COLOR="#7c4a1e" BGCOLOR="#ffffff">
+ <TR><TD BGCOLOR="#e8a33d"><FONT COLOR="#2f1d12"><B>KategoriPita</B></FONT></TD></TR>
+ <TR><TD ALIGN="LEFT">- id : bigint<BR ALIGN="LEFT"/>- nama : string<BR ALIGN="LEFT"/>- slug : string<BR ALIGN="LEFT"/>- deskripsi : text<BR ALIGN="LEFT"/></TD></TR>
+ <TR><TD ALIGN="LEFT">+ pita() : HasMany</TD></TR>
+</TABLE>>];
+
+    Pita [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" COLOR="#7c4a1e" BGCOLOR="#ffffff">
+ <TR><TD BGCOLOR="#e8a33d"><FONT COLOR="#2f1d12"><B>Pita</B></FONT></TD></TR>
+ <TR><TD ALIGN="LEFT">- id : bigint<BR ALIGN="LEFT"/>- kode_arsip : string<BR ALIGN="LEFT"/>- judul : string<BR ALIGN="LEFT"/>- kategori_pita_id : bigint<BR ALIGN="LEFT"/>- tahun_rekaman : smallint<BR ALIGN="LEFT"/>- durasi_menit : smallint<BR ALIGN="LEFT"/>- kondisi : enum<BR ALIGN="LEFT"/>- lokasi_simpan : string<BR ALIGN="LEFT"/>- deskripsi : text<BR ALIGN="LEFT"/></TD></TR>
+ <TR><TD ALIGN="LEFT">+ kategori() : BelongsTo<BR ALIGN="LEFT"/>+ kerusakan() : BelongsToMany<BR ALIGN="LEFT"/>+ restorasi() : HasMany<BR ALIGN="LEFT"/>+ scopeCari() / scopeFilterKerusakan()<BR ALIGN="LEFT"/>+ getKondisiLabelAttribute()<BR ALIGN="LEFT"/></TD></TR>
+</TABLE>>];
+
+    Kerusakan [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" COLOR="#7c4a1e" BGCOLOR="#ffffff">
+ <TR><TD BGCOLOR="#e8a33d"><FONT COLOR="#2f1d12"><B>Kerusakan</B></FONT></TD></TR>
+ <TR><TD ALIGN="LEFT">- id : bigint<BR ALIGN="LEFT"/>- nama : string<BR ALIGN="LEFT"/>- deskripsi : text<BR ALIGN="LEFT"/></TD></TR>
+ <TR><TD ALIGN="LEFT">+ pita() : BelongsToMany</TD></TR>
+</TABLE>>];
+
+    Teknisi [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" COLOR="#7c4a1e" BGCOLOR="#ffffff">
+ <TR><TD BGCOLOR="#e8a33d"><FONT COLOR="#2f1d12"><B>Teknisi</B></FONT></TD></TR>
+ <TR><TD ALIGN="LEFT">- id : bigint<BR ALIGN="LEFT"/>- nama : string<BR ALIGN="LEFT"/>- keahlian : string<BR ALIGN="LEFT"/>- email : string<BR ALIGN="LEFT"/></TD></TR>
+ <TR><TD ALIGN="LEFT">+ restorasi() : HasMany</TD></TR>
+</TABLE>>];
+
+    Peralatan [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" COLOR="#7c4a1e" BGCOLOR="#ffffff">
+ <TR><TD BGCOLOR="#e8a33d"><FONT COLOR="#2f1d12"><B>Peralatan</B></FONT></TD></TR>
+ <TR><TD ALIGN="LEFT">- id : bigint<BR ALIGN="LEFT"/>- nama : string<BR ALIGN="LEFT"/>- jenis : enum<BR ALIGN="LEFT"/></TD></TR>
+ <TR><TD ALIGN="LEFT">+ restorasi() : BelongsToMany</TD></TR>
+</TABLE>>];
+
+    Restorasi [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" COLOR="#7c4a1e" BGCOLOR="#ffffff">
+ <TR><TD BGCOLOR="#e8a33d"><FONT COLOR="#2f1d12"><B>Restorasi</B></FONT></TD></TR>
+ <TR><TD ALIGN="LEFT">- id : bigint<BR ALIGN="LEFT"/>- pita_id : bigint<BR ALIGN="LEFT"/>- teknisi_id : bigint?<BR ALIGN="LEFT"/>- tanggal_mulai : date<BR ALIGN="LEFT"/>- tanggal_selesai : date?<BR ALIGN="LEFT"/>- status : enum<BR ALIGN="LEFT"/>- biaya : decimal(12,2)<BR ALIGN="LEFT"/>- catatan : text<BR ALIGN="LEFT"/></TD></TR>
+ <TR><TD ALIGN="LEFT">+ pita() : BelongsTo<BR ALIGN="LEFT"/>+ teknisi() : BelongsTo<BR ALIGN="LEFT"/>+ detail() : HasMany<BR ALIGN="LEFT"/>+ peralatan() : BelongsToMany<BR ALIGN="LEFT"/>+ scopeFilterStatus() / scopeFilterPeralatan()<BR ALIGN="LEFT"/></TD></TR>
+</TABLE>>];
+
+    RestorasiDetail [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" COLOR="#7c4a1e" BGCOLOR="#ffffff">
+ <TR><TD BGCOLOR="#e8a33d"><FONT COLOR="#2f1d12"><B>RestorasiDetail</B></FONT></TD></TR>
+ <TR><TD ALIGN="LEFT">- id : bigint<BR ALIGN="LEFT"/>- restorasi_id : bigint<BR ALIGN="LEFT"/>- tahap : enum<BR ALIGN="LEFT"/>- tindakan : string<BR ALIGN="LEFT"/>- tanggal : date<BR ALIGN="LEFT"/>- durasi_menit : smallint<BR ALIGN="LEFT"/>- hasil : text<BR ALIGN="LEFT"/></TD></TR>
+ <TR><TD ALIGN="LEFT">+ restorasi() : BelongsTo<BR ALIGN="LEFT"/>+ getTahapLabelAttribute()<BR ALIGN="LEFT"/></TD></TR>
+</TABLE>>];
+  }
+
+  subgraph cluster_service {
+    label=<<B>&laquo;Services&raquo;</B>>; style="rounded,filled"; fillcolor="#e6f0ff"; color="#2563eb"; fontsize=12;
+    PitaService [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" COLOR="#1d4ed8" BGCOLOR="#ffffff">
+ <TR><TD BGCOLOR="#60a5fa"><B>PitaService</B></TD></TR>
+ <TR><TD ALIGN="LEFT">+ create(data, kerusakanIds) : Pita<BR ALIGN="LEFT"/>+ update(pita, data, kerusakanIds) : Pita<BR ALIGN="LEFT"/>+ delete(pita) : void  [DB::transaction]<BR ALIGN="LEFT"/></TD></TR>
+</TABLE>>];
+    RestorasiService [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" COLOR="#1d4ed8" BGCOLOR="#ffffff">
+ <TR><TD BGCOLOR="#60a5fa"><B>RestorasiService</B></TD></TR>
+ <TR><TD ALIGN="LEFT">+ create(data, peralatanIds) : Restorasi<BR ALIGN="LEFT"/>+ ubahStatus(restorasi, status) : Restorasi<BR ALIGN="LEFT"/>+ tambahDetail(restorasi, data) : RestorasiDetail<BR ALIGN="LEFT"/>+ ubahDetail() / hapusDetail() / delete()  [DB::transaction]<BR ALIGN="LEFT"/></TD></TR>
+</TABLE>>];
+    KategoriPitaService [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" COLOR="#1d4ed8" BGCOLOR="#ffffff">
+ <TR><TD BGCOLOR="#60a5fa"><B>KategoriPitaService</B></TD></TR>
+ <TR><TD ALIGN="LEFT">+ create(data) : KategoriPita<BR ALIGN="LEFT"/>+ update(kategori, data)<BR ALIGN="LEFT"/>+ delete(kategori) : void<BR ALIGN="LEFT"/></TD></TR>
+</TABLE>>];
+  }
+
+  subgraph cluster_ctrl {
+    label=<<B>&laquo;Controllers&raquo;</B>>; style="rounded,filled"; fillcolor="#ecfdf5"; color="#16a34a"; fontsize=12;
+    PitaController [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" COLOR="#15803d" BGCOLOR="#ffffff">
+ <TR><TD BGCOLOR="#86efac"><B>PitaController</B><BR/><FONT POINT-SIZE="9">Resource</FONT></TD></TR>
+ <TR><TD ALIGN="LEFT">+ index(Request) · create() · store(PitaRequest)<BR ALIGN="LEFT"/>+ show · edit · update · destroy<BR ALIGN="LEFT"/></TD></TR>
+</TABLE>>];
+    RestorasiController [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" COLOR="#15803d" BGCOLOR="#ffffff">
+ <TR><TD BGCOLOR="#86efac"><B>RestorasiController</B><BR/><FONT POINT-SIZE="9">Resource</FONT></TD></TR>
+ <TR><TD ALIGN="LEFT">+ index · create · store · show<BR ALIGN="LEFT"/>+ edit · update · destroy · updateStatus()<BR ALIGN="LEFT"/></TD></TR>
+</TABLE>>];
+    RestorasiDetailController [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" COLOR="#15803d" BGCOLOR="#ffffff">
+ <TR><TD BGCOLOR="#86efac"><B>RestorasiDetailController</B></TD></TR>
+ <TR><TD ALIGN="LEFT">+ store · update · destroy (nested)</TD></TR>
+</TABLE>>];
+    KategoriPitaController [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" COLOR="#15803d" BGCOLOR="#ffffff">
+ <TR><TD BGCOLOR="#86efac"><B>KategoriPitaController</B><BR/><FONT POINT-SIZE="9">Resource</FONT></TD></TR>
+ <TR><TD ALIGN="LEFT">+ index · create · store · edit · update · destroy</TD></TR>
+</TABLE>>];
+  }
+
+  // Asosiasi antar model (sesuai ERD)
+  KategoriPita -> Pita [arrowhead=crow, arrowtail=none, dir=forward, taillabel="1", headlabel="0..*", label=" hasMany "];
+  Pita -> Kerusakan [arrowhead=none, arrowtail=none, taillabel="0..*", headlabel="0..*", label=" belongsToMany\n(pita_kerusakan) "];
+  Pita -> Restorasi [arrowhead=crow, taillabel="1", headlabel="0..*", label=" hasMany "];
+  Teknisi -> Restorasi [arrowhead=crow, taillabel="0..1", headlabel="0..*", label=" hasMany "];
+  Restorasi -> RestorasiDetail [arrowhead=diamond, arrowtail=none, style=bold, taillabel="1", headlabel="0..*", label=" composition\n hasMany(detail) "];
+  Restorasi -> Peralatan [arrowhead=none, taillabel="0..*", headlabel="0..*", label=" belongsToMany\n(restorasi_peralatan) ", style=dashed];
+
+  // Dependensi Service -> Model; Controller -> Service
+  PitaService -> Pita [style=dashed, arrowhead=open, color="#2563eb", label=" uses"];
+  RestorasiService -> Restorasi [style=dashed, arrowhead=open, color="#2563eb"];
+  RestorasiService -> RestorasiDetail [style=dashed, arrowhead=open, color="#2563eb"];
+  KategoriPitaService -> KategoriPita [style=dashed, arrowhead=open, color="#2563eb"];
+  PitaController -> PitaService [style=dotted, arrowhead=open, color="#16a34a", label=" DI "];
+  RestorasiController -> RestorasiService [style=dotted, arrowhead=open, color="#16a34a"];
+  RestorasiDetailController -> RestorasiService [style=dotted, arrowhead=open, color="#16a34a"];
+  KategoriPitaController -> KategoriPitaService [style=dotted, arrowhead=open, color="#16a34a"];
+
+  { rank=same; KategoriPita; Kerusakan; Teknisi; Peralatan }
+  { rank=same; PitaController; RestorasiController; KategoriPitaController; RestorasiDetailController }
+}
